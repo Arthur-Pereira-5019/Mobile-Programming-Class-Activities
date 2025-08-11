@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Aplicativo</string>
-    <string name="one">Um</string>
-    <string name="hello">Oieeeeeeeeee</string>
-    <string name="two">Dois</string>
-    <string name="three">Três</string>
+    <string name="clicker">Me clique</string>
+    <string name="clicktimes">Você clicou: x vezes</string>
 </resources>

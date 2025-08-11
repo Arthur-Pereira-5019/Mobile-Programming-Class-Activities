@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">App</string>
-    <string name="one">One</string>
-    <string name="hello">Hello</string>
-    <string name="two">Two</string>
-    <string name="three">Three</string>
+    <string name="clicker">Click Me</string>
+    <string name="clicktimes">You clicked: x times</string>
 </resources>
