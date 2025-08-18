@@ -23,7 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="185dp"
         android:layout_marginTop="274dp"
+        android:scaleX="4"
+        android:scaleY="4"
         android:text="@string/clicker"
+        android:textColor="#9500FF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
