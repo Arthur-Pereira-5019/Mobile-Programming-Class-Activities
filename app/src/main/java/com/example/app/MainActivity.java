@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
 
             }
-            try {
-
-            }
             tv.setText(Integer.toString(a));
         });
     }
