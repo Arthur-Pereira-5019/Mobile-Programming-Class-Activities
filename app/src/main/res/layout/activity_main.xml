@@ -13,21 +13,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:text="Calculadora IMC" />
 
     <TextView
         android:id="@+id/pes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:text="Peso (Kg)" />
 
     <EditText
         android:id="@+id/editPes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:ems="10"
         android:hint="00.00"
         android:inputType="text" />
@@ -36,14 +36,14 @@
         android:id="@+id/alt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.5"
+        android:layout_weight="1"
         android:text="Altura (m)" />
 
     <EditText
         android:id="@+id/editAlt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="4"
         android:ems="10"
         android:hint="0.00"
         android:inputType="text" />
@@ -52,14 +52,14 @@
         android:id="@+id/btnCalcular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5"
+        android:layout_weight="6"
         android:text="Calcular" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="6"
+        android:layout_weight="24"
         tools:srcCompat="@tools:sample/avatars" />
 
 </LinearLayout>
