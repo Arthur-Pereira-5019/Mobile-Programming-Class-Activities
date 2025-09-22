@@ -2,7 +2,6 @@ package com.example.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,26 +10,26 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class ResultadoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_resultado);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button btn = findViewById(R.id.button);
-        TextView tv = findViewById(R.id.editTextText);
-        String passar = tv.getText().toString();
-        Double
-        btn.setOnClickListener(l -> {
-            Intent i = new Intent(this, ResultadoActivity.class);
-            i.putExtra("VALOR", passar);
-            startActivity(i);
-        });
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
+        Double base = b.getDouble("VALOR");
+        TextView resultados = findViewById(R.id.resultados);
+        String resultado = "?";
+        for(int j = 0; j < 10; j++) {
+            resultado = base + " * " + j + " = " + base*j + "\n";
+        }
+        resultados.setText(resultado);
     }
 }
