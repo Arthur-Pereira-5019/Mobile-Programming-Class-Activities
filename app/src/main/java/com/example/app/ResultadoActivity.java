@@ -26,9 +26,9 @@ public class ResultadoActivity extends AppCompatActivity {
         Bundle b = i.getExtras();
         Double base = b.getDouble("VALOR");
         TextView resultados = findViewById(R.id.resultados);
-        String resultado = "?";
-        for(int j = 0; j < 10; j++) {
-            resultado = base + " * " + j + " = " + base*j + "\n";
+        String resultado = "";
+        for(int j = 1; j <= 10; j++) {
+            resultado = resultado + base + " * " + j + " = " + base*j + "\n";
         }
         resultados.setText(resultado);
     }

@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         });
         Button btn = findViewById(R.id.button);
         TextView tv = findViewById(R.id.editTextText);
-        String passar = tv.getText().toString();
-        Double
         btn.setOnClickListener(l -> {
+            String base = tv.getText().toString();
+            Double valor = Double.valueOf(base);
             Intent i = new Intent(this, ResultadoActivity.class);
-            i.putExtra("VALOR", passar);
+            i.putExtra("VALOR", valor);
             startActivity(i);
         });
     }
