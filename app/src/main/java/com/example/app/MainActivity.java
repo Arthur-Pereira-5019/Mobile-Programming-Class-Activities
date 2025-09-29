@@ -3,6 +3,7 @@ package com.example.app;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, nomes);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener((pa, v, po, i) -> {
+            Toast.makeText(getApplicationContext(), nomes[po], Toast.LENGTH_SHORT).show();
+        });
     }
 }
