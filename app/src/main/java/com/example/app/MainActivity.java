@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(this, Dado.class);
 
-            Cursor cursor = db.rawQuery("SELECT * FROM notas where id = "+id, null);
+            Cursor cursor = db.rawQuery("SELECT * FROM notas where texto = \""+parent.getItemAtPosition(position)+"\"", null);
             cursor.moveToFirst();
 
             Bundle bundle = new Bundle();

@@ -37,11 +37,15 @@ public class Dado extends AppCompatActivity {
         Button save = findViewById(R.id.salvar);
         Long idB = bundle.getLong("id");
 
-        titulo.setText(bundle.getString("titulo", "Default String"));
-        texto.setText(bundle.getString("texto", "Default String"));
+        String tituloA = bundle.getString("titulo", "Default String");
+        String textoA = bundle.getString("texto", "Default String");
+        titulo.setText(tituloA);
+        texto.setText(textoA);
         id.setText(idB.toString());
 
         db = openOrCreateDatabase("db", MODE_PRIVATE, null);
+        cv.put("titulo", tituloA);
+        cv.put("texto", textoA);
         save.setOnClickListener(b -> {db.update("notas", cv, "id", new String[]{idB.toString()});});
     }
 }

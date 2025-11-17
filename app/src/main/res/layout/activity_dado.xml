@@ -11,33 +11,47 @@
         android:id="@+id/dado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Dado"
-        tools:layout_editor_absoluteX="189dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
         android:text="Salvar"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="660dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/idDado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="17dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="17dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/campoTexto"
-        android:layout_width="369dp"
-        android:layout_height="573dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="67dp"
         android:ems="10"
         android:inputType="text"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="68dp" />
+        android:text="aaa"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="@+id/salvar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
