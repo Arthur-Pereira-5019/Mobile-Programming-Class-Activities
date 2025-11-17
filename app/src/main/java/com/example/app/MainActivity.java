@@ -1,6 +1,8 @@
 package com.example.app;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
 
+    @SuppressLint("Range")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
             carregarListagem();
             //Toast.makeText("Nota salva com sucesso!", Toast.LENGTH_SHORT).show();
         });
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(this, Dado.class);
+
+            Cursor cursor = db.rawQuery("SELECT * FROM notas where id = "+id, null);
+            cursor.moveToFirst();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("titulo",cursor.getString(cursor.getColumnIndex("titulo" + "")));
+            bundle.putString("texto",cursor.getString(cursor.getColumnIndex("texto" + "")));
+            bundle.putLong("id",id);
+            intent.putExtras(bundle);
+
+            startActivity(intent);
+        });
 
         carregarListagem();
     }
@@ -65,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()) {
-            String titulo = cursor.getString(cursor.getColumnIndex("texto" +
+            @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex("texto" +
                     ""));
             titulos.add(titulo);
             cursor.moveToNext();
