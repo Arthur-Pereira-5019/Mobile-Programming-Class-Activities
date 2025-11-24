@@ -6,6 +6,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,9 +16,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     SensorManager sm;
-    TextView tv;
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,18 +33,26 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        tv = findViewById(R.id.textView2);
+        lv = findViewById(R.id.lv);
 
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor sensor = sm.getDefaultSensor(Sensor.TYPE_LIGHT);
         sm.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
+
+        List<Sensor> sensorList = sm.getSensorList(Sensor.TYPE_ALL);
+        ArrayList<String> listNameSensor = new ArrayList<>();
+        for(Sensor s: sensorList) {
+            listNameSensor.add(s.getName());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listNameSensor);
+        lv.setAdapter(adapter);
 
     }
 
     @Override
     public void onSensorChanged(SensorEvent event) {
         event.sensor.getName();
-        tv.setText(Float.toString(event.values[0]));
+        //tv.setText(Float.toString(event.values[0]));
     }
 
     @Override
