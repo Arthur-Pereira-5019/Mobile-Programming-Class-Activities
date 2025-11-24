@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             Random r = new Random();
             int min = 0, max = 1000;
-            int a;
+            int a = min;
             try {
                 min = Integer.parseInt(editTextMin.getText().toString());
                 max = Integer.parseInt(editTextMax.getText().toString());
-                a = r.nextInt(min, max);
+                a = r.nextInt(min, max+1);
             } catch (Exception e) {
 
             }
