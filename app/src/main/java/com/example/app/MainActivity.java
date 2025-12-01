@@ -43,8 +43,14 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        listView.setOnLongClickListener((pa, v, po, i) -> {
-
+        listView.setOnItemLongClickListener((pa, v, po, i) -> {
+            nomesAdicionados.remove(pa.getItemAtPosition(po));
+            notifyAdapter(adapter);
+            return true;
         });
+    }
+
+    public void notifyAdapter(ArrayAdapter<String> adapter) {
+        adapter.notifyDataSetChanged();
     }
 }
