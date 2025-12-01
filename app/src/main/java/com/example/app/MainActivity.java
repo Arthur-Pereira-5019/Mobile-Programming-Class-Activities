@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     PlanetaController planetaController;
@@ -29,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
 
         PlanetaAdapter adapter = new PlanetaAdapter(this, R.layout.item_lista, planetaController.getPlaneta());
         lv.setAdapter(adapter);
+        lv.setOnItemLongClickListener((pa, v, i, l) -> {
+            planetaController.getPlaneta().remove(pa.getItemAtPosition(i));
+            notifyAdapter(adapter);
+            return true;
+        });
 
+    }
+
+    public void notifyAdapter(PlanetaAdapter adapter) {
+        adapter.notifyDataSetChanged();
     }
 }

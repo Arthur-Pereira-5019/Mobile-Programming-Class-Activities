@@ -20,6 +20,10 @@ public class PlanetaController {
         return nomes;
     }
 
+    public void removePlaneta(Planeta p) {
+        planetaDAO.arrayListPlanetas.remove(p);
+    }
+
     public ArrayList<Planeta> getPlaneta() {
         return planetaDAO.getPlanetas();
     }
