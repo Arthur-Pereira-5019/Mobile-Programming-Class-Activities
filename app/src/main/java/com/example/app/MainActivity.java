@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(v -> {
             EditText editText = findViewById(R.id.name);
             String texto = editText.getText().toString();
-            cv.put("titulo", "Minha primeira nota");
-            cv.put("texto", texto);
+            cv.put("texto", "Texto da nota");
+            cv.put("titulo", texto);
             db.insert("notas",null, cv);
             carregarListagem();
             //Toast.makeText("Nota salva com sucesso!", Toast.LENGTH_SHORT).show();
@@ -61,13 +61,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(this, Dado.class);
 
-            Cursor cursor = db.rawQuery("SELECT * FROM notas where texto = \""+parent.getItemAtPosition(position)+"\"", null);
+            System.out.print(position);
+            Cursor cursor = db.rawQuery("SELECT * FROM notas where titulo = \""+parent.getItemAtPosition(position)+"\"", null);
             cursor.moveToFirst();
 
             Bundle bundle = new Bundle();
             bundle.putString("titulo",cursor.getString(cursor.getColumnIndex("titulo" + "")));
             bundle.putString("texto",cursor.getString(cursor.getColumnIndex("texto" + "")));
-            bundle.putLong("id",id);
+
             intent.putExtras(bundle);
 
             startActivity(intent);
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         cursor.moveToFirst();
 
         while(!cursor.isAfterLast()) {
-            @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex("texto" +
+            @SuppressLint("Range") String titulo = cursor.getString(cursor.getColumnIndex("titulo" +
                     ""));
             titulos.add(titulo);
             cursor.moveToNext();

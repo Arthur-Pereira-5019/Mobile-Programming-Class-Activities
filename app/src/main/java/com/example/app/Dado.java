@@ -4,8 +4,10 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,8 +46,10 @@ public class Dado extends AppCompatActivity {
         id.setText(idB.toString());
 
         db = openOrCreateDatabase("db", MODE_PRIVATE, null);
-        cv.put("titulo", tituloA);
-        cv.put("texto", textoA);
-        save.setOnClickListener(b -> {db.update("notas", cv, "id", new String[]{idB.toString()});});
+        save.setOnClickListener(b -> {
+            cv.put("texto", texto.getText().toString());
+            db.update("notas", cv, "titulo = ?", new String[]{tituloA});
+            db.close();
+        });
     }
 }
